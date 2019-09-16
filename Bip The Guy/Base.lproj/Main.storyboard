@@ -18,16 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Image To Punch: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBg-gd-BKT">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Choose Image To Punch: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBg-gd-BKT">
                                 <rect key="frame" x="90" y="517" width="195" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="brb-iL-bb8"/>
+                                    <constraint firstAttribute="height" constant="22" id="3PF-ct-ybB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="FqZ-Co-his">
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="FqZ-Co-his">
                                 <rect key="frame" x="87" y="547" width="198" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mlc-n7-cEG">
@@ -50,7 +50,7 @@
                                 <rect key="frame" x="30" y="44" width="314" height="465"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="465" id="4un-LM-kkD"/>
+                                    <constraint firstAttribute="height" constant="465" id="Zh9-4m-hu2"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="mL7-yz-Uiw" appends="YES" id="FA5-5K-4Dv"/>
@@ -59,13 +59,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="kqn-xF-9O8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KaZ-pX-c2b"/>
-                            <constraint firstItem="kqn-xF-9O8" firstAttribute="centerX" secondItem="aBg-gd-BKT" secondAttribute="centerX" id="Ku1-60-6Bh"/>
-                            <constraint firstItem="kqn-xF-9O8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Phd-Af-FMt"/>
-                            <constraint firstItem="aBg-gd-BKT" firstAttribute="top" secondItem="kqn-xF-9O8" secondAttribute="bottom" constant="8" symbolic="YES" id="Svn-3a-XAR"/>
-                            <constraint firstItem="aBg-gd-BKT" firstAttribute="trailing" secondItem="FqZ-Co-his" secondAttribute="trailing" id="tEe-vA-Alh"/>
-                            <constraint firstItem="FqZ-Co-his" firstAttribute="top" secondItem="aBg-gd-BKT" secondAttribute="bottom" constant="8" symbolic="YES" id="tW0-Cr-ykX"/>
-                            <constraint firstItem="kqn-xF-9O8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zFO-0Y-4AF"/>
+                            <constraint firstItem="aBg-gd-BKT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="110" id="8a2-3M-eBc"/>
+                            <constraint firstItem="kqn-xF-9O8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ody-vV-rdq"/>
+                            <constraint firstItem="aBg-gd-BKT" firstAttribute="top" secondItem="kqn-xF-9O8" secondAttribute="bottom" constant="22" id="b6i-bk-Iwc"/>
+                            <constraint firstItem="FqZ-Co-his" firstAttribute="top" secondItem="aBg-gd-BKT" secondAttribute="bottom" constant="8" symbolic="YES" id="eer-bE-Qmt"/>
+                            <constraint firstItem="aBg-gd-BKT" firstAttribute="leading" secondItem="FqZ-Co-his" secondAttribute="leading" id="fwz-Lm-Ppw"/>
+                            <constraint firstItem="kqn-xF-9O8" firstAttribute="centerX" secondItem="aBg-gd-BKT" secondAttribute="centerX" id="tkM-eI-Aca"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -74,7 +73,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="mL7-yz-Uiw"/>
+                <tapGestureRecognizer id="mL7-yz-Uiw">
+                    <connections>
+                        <action selector="imageTapped:" destination="BYZ-38-t0r" id="78T-P0-m7n"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="116.57608695652175"/>
         </scene>
