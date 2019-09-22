@@ -9,10 +9,11 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     //mark: properties
     @IBOutlet weak var imageToPunch: UIImageView!
     var audioPlayer = AVAudioPlayer()
+    var imagePicker = UIImagePickerController()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -20,11 +21,29 @@ class ViewController: UIViewController {
 
 
     @IBAction func libraryPressed(_ sender: UIButton) {
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
+        
         
     }
     @IBAction func cameraPressed(_ sender: UIButton) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.sourceType = .camera
+            imagePicker.delegate = self
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            showAlert(title: "Camera Not Available", message: "There is no camera available on this device.")
+        }
+        
     }
-
+    func showAlert(title: String, message: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
+    }
     //mark: functions
     
     func animateImage() {   
@@ -51,6 +70,20 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        
+        imageToPunch.image = selectedImage
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     
     //mark: actions
     @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
